@@ -454,7 +454,7 @@ position = Vector2(841.573, 2244.94)
 
 [node name="Pixil-frame-0(1)" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1554, -1527.34)
+position = Vector2(1600.35, -1422.57)
 scale = Vector2(-116.634, -121.303)
 texture = ExtResource("6_34qfm")
 
