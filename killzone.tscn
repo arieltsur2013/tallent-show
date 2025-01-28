@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://7hap7l26jwm3"]
+
+[ext_resource type="Script" path="res://dede.gd" id="1_fkkv2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xojdf"]
+
+[node name="killzone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_fkkv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_xojdf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

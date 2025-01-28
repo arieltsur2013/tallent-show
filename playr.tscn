@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvn428qknu5t1"]
+
+[ext_resource type="Script" path="res://playre.gd" id="1_yc6sg"]
+[ext_resource type="Texture2D" uid="uid://deqxv5v0h4mjm" path="res://pixil-frame-0.png" id="2_x03dx"]
+[ext_resource type="Texture2D" uid="uid://1xup8vgor3by" path="res://pixil-frame-2.png" id="3_3qitb"]
+[ext_resource type="Texture2D" uid="uid://b0651yq8kc1g4" path="res://pixil-frame-1.png" id="4_65bpt"]
+[ext_resource type="Texture2D" uid="uid://5jmmqtib07et" path="res://pixil-frame-3.png" id="5_8jqvu"]
+[ext_resource type="Script" path="res://ray_cast_2d.gd" id="6_viuxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fli5d"]
+size = Vector2(4.6277, 12.032)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdcax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x03dx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x03dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_65bpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3qitb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8jqvu")
+}],
+"loop": true,
+"name": &"walke",
+"speed": 10.0
+}]
+
+[node name="playr" type="CharacterBody2D"]
+z_index = 5
+scale = Vector2(2.94, 2.94)
+collision_layer = 3
+script = ExtResource("1_yc6sg")
+
+[node name="CollisionShape2Ds" type="CollisionShape2D" parent="."]
+position = Vector2(-1.02041, 0)
+scale = Vector2(2.94, 2.94)
+shape = SubResource("RectangleShape2D_fli5d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(12.1529, -16.6667)
+scale = Vector2(0.0882762, 0.09)
+sprite_frames = SubResource("SpriteFrames_sdcax")
+animation = &"walke"
+autoplay = "default"
+frame = 2
+frame_progress = 0.973643
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
+target_position = Vector2(800, 0)
+script = ExtResource("6_viuxs")
+rest_length = 50.0
+
+[node name="Line2D" type="Line2D" parent="Node2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0, 0, 1)

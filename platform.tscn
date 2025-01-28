@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0t47dab58lux"]
+
+[ext_resource type="Texture2D" uid="uid://d3i86jimukxb8" path="res://grass.png" id="1_8fto5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hpi4f"]
+size = Vector2(160, 46)
+
+[node name="platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 2.38419e-07)
+scale = Vector2(0.178437, 0.0512054)
+texture = ExtResource("1_8fto5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hpi4f")
+one_way_collision = true

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://burjcfht04q7i"]
+
+[ext_resource type="Script" path="res://coine.gd" id="1_8uqjx"]
+[ext_resource type="Texture2D" uid="uid://pgkpyld5hh2i" path="res://i-was-making-a-datapack-for-minecraft-that-adds-coins-how-v0-viw6l1wjdh3d1.png" id="2_vviq0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bsha"]
+radius = 1881.5
+
+[node name="coin" type="Area2D"]
+scale = Vector2(0.08, 0.08)
+collision_mask = 2
+script = ExtResource("1_8uqjx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.08, 0.08)
+shape = SubResource("CircleShape2D_8bsha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vviq0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
